@@ -1104,6 +1104,11 @@ fn run(log: &Logger) -> Result<()> {
                 run_qemu(log, &smbios.uuid)?;
                 return Ok(());
             }
+            (_, "VirtualBox") => {
+                info!(log, "hypervisor type: Oracle VirtualBox (from SMBIOS)");
+                run_qemu(log, &smbios.uuid)?;
+                return Ok(());
+            }
             _ => {}
         }
 
